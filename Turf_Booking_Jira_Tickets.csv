@@ -1,0 +1,40 @@
+ID,Type,Title,Description,Acceptance Criteria,Priority
+TURF-1,Story,View Turf Details,"As a customer, I want to see the turf's photos, address, price and rules, so that I know what I am booking before I choose a date.","1. The turf page shows the name, address with a map link, photos, sport, facilities and rules.
+2. The price per slot is shown.
+3. The page is easy to read on a phone.
+4. The customer can go from this page to Select Date.",Medium
+TURF-2,Story,View Available Slots,"As a customer, I want to pick a date and see which slots are free, so that I do not have to call or message the turf.","1. After a date is selected, all slots for that day are listed with their time.
+2. Each slot shows a clear status: Available, Booked or Unavailable.
+3. Booked and Unavailable slots cannot be selected.
+4. If the turf is closed or under maintenance on that date, the slots show Unavailable with the reason.
+5. Slot status changes by itself when a slot is held, booked or cancelled. Staff do not update it by hand.",High
+TURF-3,Story,Book a Slot,"As a customer, I want to select a slot and enter my details, so that I can book the turf without calling.","1. Selecting an available slot opens a details form.
+2. Full name and mobile number are required. Number of players, email and note are optional.
+3. If a required field is empty or the mobile number is not valid, an error message appears next to the field and the entered details are kept.
+4. The customer reviews the date, slot and price, then confirms with one button.
+5. The booking is confirmed at once if the slot is still free. The owner does not need to approve it.
+6. There is no online payment. The customer pays at the turf.",High
+TURF-4,Task,Prevent Double Booking,Make sure one slot can never be booked by two customers. Hold the slot when it is selected and check it again when the booking is confirmed.,"1. A selected slot is held for 5 minutes, and other customers cannot select it during that time.
+2. If the customer confirms within 5 minutes, the slot becomes Booked.
+3. If the customer leaves or the 5 minutes pass, the slot becomes Available again by itself.
+4. At confirmation the system checks the slot again. If someone else booked it first, the customer sees ""This slot was just booked"" and the nearest free slots. The entered details are kept.
+5. If two customers confirm the same slot at the same time, only one booking is saved.
+6. If there is a system or network error, the customer can retry and no duplicate booking is created.",High
+TURF-5,Task,Booking Confirmation,"After a booking is saved, show a confirmation screen with a booking ID, so that the customer can find or cancel the booking later.","1. Every booking gets a unique booking ID.
+2. The confirmation screen shows the booking ID, date, time slot, name, mobile number and turf address.
+3. The screen says the customer pays at the turf.
+4. The booking appears in the admin booking list with the status Confirmed.
+5. If the booking could not be saved, no confirmation is shown. The customer sees an error and a Retry button.",Medium
+TURF-6,Story,Cancel a Booking,"As a customer, I want to cancel my booking if my plans change, so that the slot is free for other people.","1. The customer opens Manage Booking and enters the booking ID and mobile number.
+2. If the details do not match a booking, a ""Booking not found"" message is shown.
+3. If the slot starts in more than 12 hours, the customer can cancel. The status changes to Cancelled and a confirmation message is shown.
+4. The cancelled slot becomes Available again by itself.
+5. If the slot starts in 12 hours or less, the booking cannot be cancelled online. The customer sees the turf's phone number.",High
+TURF-7,Story,Admin: Manage Bookings,"As turf staff, I want to see all bookings in one list and add or cancel a booking, so that phone and walk-in bookings are also recorded in the system.","1. The admin sees all bookings in one list with date, slot, customer name, mobile number, status and source (online, phone or walk-in).
+2. The admin can add a phone or walk-in booking for an available slot. The slot becomes Booked at once.
+3. The admin can cancel a booking when a customer asks. The slot becomes Available again.
+4. Changes made by the admin show to customers straight away.",Medium
+TURF-8,Story,Admin: Block Slots,"As the turf owner, I want to block a day or some slots for maintenance or a holiday, so that customers cannot book when the turf is not available.","1. The admin can block a full day or selected slots by choosing the date, time range and a reason.
+2. Blocked slots show as Unavailable to customers, with the reason.
+3. If a slot already has a booking, the admin sees a warning with the customer's name and mobile number. The booking must be cancelled before the slot is blocked.
+4. The admin can unblock a slot, and it becomes Available again.",Medium

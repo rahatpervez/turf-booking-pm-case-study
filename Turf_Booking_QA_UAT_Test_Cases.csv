@@ -1,0 +1,43 @@
+ID,Test Case,Steps,Expected Result,Related Ticket
+TC-01,Book an available slot,"1. Open the booking page.
+2. Select a date and an available slot.
+3. Enter a name and a valid mobile number.
+4. Tap Confirm.",The booking is confirmed and a booking ID is shown.,TURF-3
+TC-02,Booking is completed successfully,"1. Complete a booking as in TC-01.
+2. Check the confirmation screen.
+3. Check the admin booking list.","The confirmation shows the booking ID, date, slot, name and mobile number. The booking is in the admin list as Confirmed, and the slot shows as Booked.",TURF-5
+TC-03,Try to book an unavailable slot (already booked),"1. Open a date that has a booked slot.
+2. Try to select the booked slot.",The slot is shown as Booked and cannot be selected.,TURF-2
+TC-04,Try to book the same slot twice,"1. Book a slot.
+2. Open the same date again and try to book the same slot.","The slot shows as Booked, so it cannot be selected again. No second booking is created.",TURF-4
+TC-05,Two customers confirm the same slot at the same time,"1. Customer A and Customer B select the same slot at almost the same time.
+2. Both tap Confirm.","Only one booking is saved. The other customer sees ""This slot was just booked"" and the nearest free slots.",TURF-4
+TC-06,Leave required information empty,"1. Select an available slot.
+2. Leave the name and mobile number empty.
+3. Tap Confirm.",Error messages appear next to the empty fields. No booking is created.,TURF-3
+TC-07,Enter an invalid mobile number,"1. Select an available slot.
+2. Enter a name and a mobile number such as 123.
+3. Tap Confirm.",An error message asks for a valid mobile number. The entered details are kept and no booking is created.,TURF-3
+TC-08,Slot hold ends after 5 minutes,"1. Select a slot but do not confirm.
+2. Wait 5 minutes.
+3. Open the same date on another phone.",The slot is Available again and another customer can select it.,TURF-4
+TC-09,System error while confirming the booking,"1. Select a slot and enter valid details.
+2. Turn off the internet and tap Confirm.
+3. Turn the internet on and tap Retry.","An error message says the booking was not confirmed and shows a Retry button. After the retry, one booking is saved and no duplicate is created.",TURF-4
+TC-10,Cancel a booking more than 12 hours before the slot,"1. Open Manage Booking.
+2. Enter the booking ID and mobile number of a booking that starts in more than 12 hours.
+3. Tap Cancel Booking.",The status changes to Cancelled and a confirmation is shown. The slot becomes Available again.,TURF-6
+TC-11,Cancel a booking within 12 hours of the slot,"1. Open Manage Booking with a booking that starts in less than 12 hours.
+2. Try to cancel it.",The booking cannot be cancelled online. The turf's phone number is shown and the booking stays Confirmed.,TURF-6
+TC-12,Open a booking with a wrong booking ID or mobile number,"1. Open Manage Booking.
+2. Enter a wrong booking ID, or a mobile number that does not match.","A ""Booking not found"" message is shown. No booking details are shown.",TURF-6
+TC-13,Turf unavailable due to maintenance,"1. As admin, block a slot or a full day for maintenance and enter a reason.
+2. As a customer, open that date.",The blocked slots show as Unavailable with the reason and cannot be selected.,TURF-8
+TC-14,Block a slot that already has a booking,"1. As admin, try to block a slot that is already booked.",The admin sees a warning with the customer's name and mobile number. The slot is not blocked until the booking is cancelled.,TURF-8
+TC-15,Unblock a slot,"1. As admin, unblock a blocked slot.
+2. As a customer, open that date.",The slot is Available again and can be selected.,TURF-8
+TC-16,View turf details on a phone,1. Open the booking link on a phone.,"The turf name, photos, price and rules are shown and easy to read.",TURF-1
+TC-17,Admin adds a phone or walk-in booking,"1. As admin, choose an available slot.
+2. Add a booking with the customer's name and mobile number, and set the source to Phone.",The slot becomes Booked and the booking shows in the list with the source Phone. Customers see the slot as Booked.,TURF-7
+TC-18,Admin cancels a booking on a customer's request,"1. As admin, open a booking in the list.
+2. Cancel it.",The status changes to Cancelled and the slot becomes Available again.,TURF-7
